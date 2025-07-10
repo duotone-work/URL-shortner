@@ -129,6 +129,7 @@ body {
   border: 2px solid black;
   border-radius: 4px;
   cursor: pointer;
+  position: relative;
 }
 
 .default_button:disabled {
@@ -139,6 +140,34 @@ body {
 
 .default_button:hover:not(:disabled) {
   background-color: var(--button-hover);
+}
+
+.button_circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1.25px solid black;
+  position: absolute;
+}
+
+.button_circle:nth-child(1) {
+  left: 3px;
+  top: 3px;
+}
+
+.button_circle:nth-child(2) {
+  right: 3px;
+  top: 3px;
+}
+
+.button_circle:nth-child(3) {
+  left: 3px;
+  bottom: 3px;
+}
+
+.button_circle:nth-child(4) {
+  right: 3px;
+  bottom: 3px;
 }
 
 .title_double_cloud,

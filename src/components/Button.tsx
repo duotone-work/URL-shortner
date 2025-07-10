@@ -7,6 +7,12 @@ const Button = ({
 }) => {
   return (
     <button className="default_button" disabled={disabled}>
+      <div className="button_innard">
+        <div className="button_circle"></div>
+        <div className="button_circle"></div>
+        <div className="button_circle"></div>
+        <div className="button_circle"></div>
+      </div>
       {btnText}
     </button>
   );
