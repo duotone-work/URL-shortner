@@ -114,10 +114,6 @@ body {
   color: black;
 }
 
-.submit_container {
-  margin-top: 10px;
-}
-
 .default_button {
   background-color: var(--button-default);
   font-family: "font-primary", monospace;
@@ -193,6 +189,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: 40px;
 }
 
 .btn_mario {
@@ -239,9 +236,5 @@ body {
     font-size: 24px;
     margin-top: calc(54px - var(--flex-gap-size));
     width: 576px;
-  }
-
-  .submit_container {
-    margin-top: 40px;
   }
 }
