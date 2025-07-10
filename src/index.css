@@ -66,10 +66,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
   margin: 0 auto;
   gap: var(--flex-gap-size);
-  height: calc(100vh - var(--footer-size) - var(--footer-border-size));
+  height: calc(95vh - var(--footer-border-size));
 }
 
 .footer {
@@ -175,6 +174,11 @@ body {
 }
 
 @media (min-width: 720px) {
+  .header_container {
+    width: 50%;
+    gap: 32px;
+  }
+
   .font_title {
     font-size: 80px;
   }
@@ -183,14 +187,11 @@ body {
     font-size: 32px;
   }
 
-  .header_container {
-    gap: 32px;
-  }
-
   .url_input {
     line-height: 32px;
     font-size: 24px;
     margin-top: calc(54px - var(--flex-gap-size));
+    width: 576px;
   }
 
   .submit_container {
