@@ -22,6 +22,11 @@ const Main = () => {
       <div className="font_subtitle">Tiny links for big wins</div>
       <Input setLink={setLink} link={link} />
       <div className="submit_container">
+        <img
+          className={`btn_mario ${link.length > 0 ? "move_up_animated" : ""}`}
+          src="/assets/images/mario_stop.png"
+          alt=""
+        />
         <Button btnText="Shorten" disabled={link.length <= 0} />
       </div>
     </main>
