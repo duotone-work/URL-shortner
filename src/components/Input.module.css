@@ -13,7 +13,8 @@
 }
 
 .url_input:focus {
-  box-shadow: inset 6px 6px rgba(127, 49, 10, 1);
+  box-shadow: inset 6px 6px rgba(127, 49, 10, 1),
+    4px 4px 4px 0 rgba(0, 0, 0, 0.3);
   outline: none;
 }
 
