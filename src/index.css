@@ -222,7 +222,7 @@ body {
 
   .modal_double_cloud_move {
     transform: translateX(-130%) translateY(800%);
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
   }
 
   .title_double_cloud,
@@ -232,6 +232,6 @@ body {
 
   .modal_single_cloud_move {
     transform: translateX(200%) translateY(150%);
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
   }
 }

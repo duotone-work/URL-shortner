@@ -25,6 +25,10 @@ const Modal = ({
     clipboard.on("success", () => {
       setCopied(true);
       setTimeout(() => {
+        if (!modalRef.current) return;
+        modalRef.current.classList.remove(styles.modal_move_up_animated);
+      }, 10);
+      setTimeout(() => {
         setCopied(false);
         resetApp();
       }, 1000);
@@ -42,8 +46,6 @@ const Modal = ({
           if (!modalRef.current) return;
           modalRef.current.classList.add(styles.modal_move_up_animated);
         }, 50);
-      } else {
-        modalRef.current.classList.remove(styles.modal_move_up_animated);
       }
     }
   }, [showModal]);
@@ -61,7 +63,17 @@ const Modal = ({
             width={40}
             height={40}
             alt=""
-            onClick={resetApp}
+            onClick={() => {
+              setTimeout(() => {
+                if (!modalRef.current) return;
+                modalRef.current.classList.remove(
+                  styles.modal_move_up_animated
+                );
+              }, 10);
+              setTimeout(() => {
+                resetApp();
+              }, 1000);
+            }}
           />
         </div>
         <div className="font_title">Link is ready!</div>
