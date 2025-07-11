@@ -10,6 +10,8 @@ const Main = () => {
   const [finalLink, setFinalLink] = useState("");
   const marioJumpRef = useRef<HTMLImageElement>(null);
   const marioStopRef = useRef<HTMLImageElement>(null);
+  const singleCloudRef = useRef<HTMLImageElement>(null);
+  const doubleCloudRef = useRef<HTMLImageElement>(null);
 
   const resetApp = () => {
     setLink("");
@@ -49,22 +51,26 @@ const Main = () => {
 
   return (
     <>
-      <Modal showModal={showModal} resetApp={resetApp} finalLink={finalLink} />
+      <Modal
+        showModal={showModal}
+        resetApp={resetApp}
+        finalLink={finalLink}
+        singleCloudRef={singleCloudRef}
+        doubleCloudRef={doubleCloudRef}
+      />
       <main className="header_container">
         <div className="title_container">
           <img
-            className={`title_double_cloud ${
-              showModal ? "modal_double_cloud_move" : ""
-            }`}
+            className="title_double_cloud"
             src="/assets/images/double_cloud.png"
             alt="double-clouds"
+            ref={doubleCloudRef}
           />
           <img
-            className={`title_single_cloud ${
-              showModal ? "modal_single_cloud_move" : ""
-            }`}
+            className="title_single_cloud"
             src="/assets/images/single_cloud.png"
             alt="single-clouds"
+            ref={singleCloudRef}
           />
           <div className="font_title">Shorten URL</div>
         </div>

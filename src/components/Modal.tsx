@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import Button from "./Button";
 import styles from "./Modal.module.css";
 import Clipboardjs from "clipboard";
@@ -7,10 +7,14 @@ const Modal = ({
   showModal,
   finalLink,
   resetApp,
+  singleCloudRef,
+  doubleCloudRef,
 }: {
   showModal: boolean;
   finalLink?: string;
   resetApp: () => void;
+  singleCloudRef: RefObject<HTMLImageElement | null>;
+  doubleCloudRef: RefObject<HTMLImageElement | null>;
 }) => {
   const btnRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -27,6 +31,10 @@ const Modal = ({
       setTimeout(() => {
         if (!modalRef.current) return;
         modalRef.current.classList.remove(styles.modal_move_up_animated);
+        if (singleCloudRef.current)
+          singleCloudRef.current.classList.remove("modal_single_cloud_move");
+        if (doubleCloudRef.current)
+          doubleCloudRef.current.classList.remove("modal_double_cloud_move");
       }, 10);
       setTimeout(() => {
         setCopied(false);
@@ -42,6 +50,10 @@ const Modal = ({
   useEffect(() => {
     if (modalRef.current) {
       if (showModal) {
+        if (singleCloudRef.current)
+          singleCloudRef.current.classList.add("modal_single_cloud_move");
+        if (doubleCloudRef.current)
+          doubleCloudRef.current.classList.add("modal_double_cloud_move");
         setTimeout(() => {
           if (!modalRef.current) return;
           modalRef.current.classList.add(styles.modal_move_up_animated);
@@ -69,6 +81,14 @@ const Modal = ({
                 modalRef.current.classList.remove(
                   styles.modal_move_up_animated
                 );
+                if (singleCloudRef.current)
+                  singleCloudRef.current.classList.remove(
+                    "modal_single_cloud_move"
+                  );
+                if (doubleCloudRef.current)
+                  doubleCloudRef.current.classList.remove(
+                    "modal_double_cloud_move"
+                  );
               }, 10);
               setTimeout(() => {
                 resetApp();
