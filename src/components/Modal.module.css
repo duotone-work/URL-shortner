@@ -1,0 +1,91 @@
+.modal_overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  width: 80%;
+  background-color: var(--url-input-bg);
+  border-top: var(--footer-border-size) solid transparent;
+  border-bottom: var(--footer-border-size) solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.psuedo_border {
+  position: absolute;
+  background: url("/assets/images/rock_block.png");
+  background-repeat: repeat;
+  width: 100%;
+  height: 16px;
+  right: 0;
+}
+
+.psuedo_border:nth-child(1) {
+  top: -16px;
+}
+
+.psuedo_border:nth-child(2) {
+  bottom: -16px;
+}
+
+.modal_actions {
+  position: absolute;
+  top: 27px;
+  right: 24px;
+  opacity: 0;
+}
+
+.modal_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  gap: 40px;
+}
+
+.modal_subtitle {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.shortened_url_area {
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid black;
+  font-family: "JetBrains Mono", monospace;
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .modal {
+    padding: 100px;
+    max-width: 776px;
+  }
+
+  .modal_subtitle {
+    font-size: 24px;
+  }
+
+  .shortened_url_area {
+    max-width: 576px;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 20;
+  }
+
+  .modal_actions {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,51 @@
+.default_button {
+  background-color: var(--button-default);
+  font-family: "font-primary", monospace;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000,
+    -2px -2px 0 #000;
+  font-size: 24px;
+  padding: 18px 20px;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.default_button:disabled {
+  background-color: var(--button-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.default_button:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.button_circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1.25px solid black;
+  position: absolute;
+}
+
+.button_circle:nth-child(1) {
+  left: 3px;
+  top: 3px;
+}
+
+.button_circle:nth-child(2) {
+  right: 3px;
+  top: 3px;
+}
+
+.button_circle:nth-child(3) {
+  left: 3px;
+  bottom: 3px;
+}
+
+.button_circle:nth-child(4) {
+  right: 3px;
+  bottom: 3px;
+}

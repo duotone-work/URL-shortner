@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import Button from "./Button";
+import styles from "./Modal.module.css";
 
 const Modal = ({
   showModal,
@@ -12,11 +13,11 @@ const Modal = ({
 }) => {
   if (!showModal) return;
   return (
-    <div className="modal_overlay">
-      <div className="modal">
-        <div className="psuedo_border"></div>
-        <div className="psuedo_border"></div>
-        <div className="modal_actions">
+    <div className={styles.modal_overlay}>
+      <div className={styles.modal}>
+        <div className={styles.psuedo_border}></div>
+        <div className={styles.psuedo_border}></div>
+        <div className={styles.modal_actions}>
           <img
             src="/assets/images/close.png"
             width={24}
@@ -29,9 +30,15 @@ const Modal = ({
           />
         </div>
         <div className="font_title">Link is ready!</div>
-        <div className="modal_body">
-          <div className="modal_subtitle">Copy the shortened URL to share</div>
-          <input disabled className="shortened_url_area" value={finalLink} />
+        <div className={styles.modal_body}>
+          <div className={styles.modal_subtitle}>
+            Copy the shortened URL to share
+          </div>
+          <input
+            disabled
+            className={styles.shortened_url_area}
+            value={finalLink}
+          />
           <div>
             <Button
               btnText="Copy Link"
