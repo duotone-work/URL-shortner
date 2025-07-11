@@ -220,7 +220,7 @@ body {
 
 .modal {
   position: relative;
-  width: 90%;
+  width: 80%;
   background-color: var(--url-input-bg);
   border-top: var(--footer-border-size) solid transparent;
   border-bottom: var(--footer-border-size) solid transparent;
@@ -228,6 +228,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 32px;
 }
 
 .psuedo_border {
@@ -251,6 +252,7 @@ body {
   position: absolute;
   top: 27px;
   right: 24px;
+  opacity: 0;
 }
 
 .modal_body {
@@ -258,11 +260,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 12px;
+  gap: 40px;
 }
 
 .modal_subtitle {
   font-family: "JetBrains Mono", monospace;
-  font-size: 24px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -338,9 +342,8 @@ body {
     max-width: 776px;
   }
 
-  .modal_body {
-    gap: 40px;
-    margin-top: 12px;
+  .modal_subtitle {
+    font-size: 24px;
   }
 
   .shortened_url_area {
@@ -348,5 +351,9 @@ body {
     font-size: 24px;
     line-height: 32px;
     padding: 20;
+  }
+
+  .modal_actions {
+    opacity: 1;
   }
 }
