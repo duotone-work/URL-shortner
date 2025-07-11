@@ -212,17 +212,21 @@ body {
   .title_double_cloud {
     left: -130px;
     top: 60px;
+    transform: translateX(0) translateY(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
   }
 
   .title_single_cloud {
     right: -100px;
     top: -30px;
     opacity: 1;
+    transform: translateX(0) translateY(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
   }
 
   .modal_double_cloud_move {
     transform: translateX(-130%) translateY(800%);
-    transition: transform 0.5s ease;
+    transition: transform 0.5s;
   }
 
   .title_double_cloud,
