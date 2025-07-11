@@ -6,7 +6,7 @@ import Modal from "./Modal";
 const Main = () => {
   const [link, setLink] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [finalLink, setFinalLink] = useState("");
   const marioJumpRef = useRef<HTMLImageElement>(null);
   const marioStopRef = useRef<HTMLImageElement>(null);
