@@ -70,6 +70,7 @@ body {
   margin: 0 auto;
   gap: var(--flex-gap-size);
   height: calc(95vh - var(--footer-border-size));
+  overflow-x: hidden;
 }
 
 .footer {
@@ -113,12 +114,12 @@ body {
 }
 
 .title_double_cloud {
-  left: -160px;
+  left: -100px;
   top: 50px;
 }
 
 .title_single_cloud {
-  right: -120px;
+  right: -60px;
   top: -30px;
 }
 
