@@ -66,6 +66,8 @@
   border: 2px solid black;
   font-family: "JetBrains Mono", monospace;
   text-align: center;
+  padding: 14px 23px;
+  color: #000;
 }
 
 @media (min-width: 720px) {
