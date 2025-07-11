@@ -53,12 +53,16 @@ const Main = () => {
       <main className="header_container">
         <div className="title_container">
           <img
-            className="title_double_cloud"
+            className={`title_double_cloud ${
+              showModal ? "modal_double_cloud_move" : ""
+            }`}
             src="/assets/images/double_cloud.png"
             alt="double-clouds"
           />
           <img
-            className="title_single_cloud"
+            className={`title_single_cloud ${
+              showModal ? "modal_single_cloud_move" : ""
+            }`}
             src="/assets/images/single_cloud.png"
             alt="single-clouds"
           />

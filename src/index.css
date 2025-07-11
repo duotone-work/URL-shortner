@@ -111,6 +111,7 @@ body {
 .title_single_cloud {
   position: absolute;
   height: 46px;
+  z-index: 10000;
 }
 
 .title_container {
@@ -214,5 +215,15 @@ body {
     right: -100px;
     top: -30px;
     opacity: 1;
+  }
+
+  .modal_double_cloud_move {
+    transform: translateX(-130%) translateY(800%);
+    transition: transform 1.5s ease;
+  }
+
+  .modal_single_cloud_move {
+    transform: translateX(200%) translateY(150%);
+    transition: transform 1.5s ease;
   }
 }
