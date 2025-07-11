@@ -19,7 +19,7 @@
   --button-hover: #75e872;
   --button-pressed: #0eac0a;
 
-  --footer-size: 5vh;
+  --footer-size: 5dvh;
   --footer-border-size: 16px;
 
   --flex-gap-size: 24px;
@@ -69,12 +69,12 @@ body {
   align-items: center;
   margin: 0 auto;
   gap: var(--flex-gap-size);
-  height: calc(95vh - var(--footer-border-size));
+  height: calc(95dvh - var(--footer-border-size));
   overflow-x: hidden;
 }
 
 .footer {
-  height: 5vh;
+  height: 5dvh;
   position: relative;
   border-top: var(--footer-border-size) solid transparent;
   border-image: url("/assets/images/road_block.png") 16 repeat;
