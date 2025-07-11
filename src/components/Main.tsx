@@ -1,9 +1,40 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 
 const Main = () => {
   const [link, setLink] = useState("");
+  const [loading, setLoading] = useState(false);
+  const marioJumpRef = useRef<HTMLImageElement>(null);
+  const marioStopRef = useRef<HTMLImageElement>(null);
+
+  const onButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    if (loading) {
+      if (marioStopRef.current?.style) {
+        marioStopRef.current.style.opacity = "0";
+      }
+      if (marioJumpRef.current?.style) {
+        marioJumpRef.current.style.opacity = "1";
+        marioJumpRef.current.classList.add("bounce");
+      }
+    } else {
+      if (marioStopRef.current?.style) {
+        marioStopRef.current.style.opacity = "1";
+      }
+      if (marioJumpRef.current?.style) {
+        marioJumpRef.current.style.opacity = "0";
+        marioJumpRef.current.classList.remove("bounce");
+      }
+    }
+  }, [loading]);
+
   return (
     <main className="header_container">
       <div className="title_container">
@@ -26,8 +57,19 @@ const Main = () => {
           className={`btn_mario ${link.length > 0 ? "move_up_animated" : ""}`}
           src="/assets/images/mario_stop.png"
           alt=""
+          ref={marioStopRef}
         />
-        <Button btnText="Shorten" disabled={link.length <= 0} />
+        <img
+          className="btn_mario_jump"
+          src="/assets/images/mario_jump.png"
+          alt=""
+          ref={marioJumpRef}
+        />
+        <Button
+          btnText="Shorten"
+          disabled={link.length <= 0 || loading}
+          onClickAction={onButtonClick}
+        />
       </div>
     </main>
   );
