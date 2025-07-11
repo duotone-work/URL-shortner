@@ -11,6 +11,13 @@ const Main = () => {
   const marioJumpRef = useRef<HTMLImageElement>(null);
   const marioStopRef = useRef<HTMLImageElement>(null);
 
+  const resetApp = () => {
+    setLink("");
+    setLoading(false);
+    setShowModal(false);
+    setFinalLink("");
+  };
+
   const onButtonClick = () => {
     setLoading(true);
     setTimeout(() => {
@@ -42,11 +49,7 @@ const Main = () => {
 
   return (
     <>
-      <Modal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        finalLink={finalLink}
-      />
+      <Modal showModal={showModal} resetApp={resetApp} finalLink={finalLink} />
       <main className="header_container">
         <div className="title_container">
           <img

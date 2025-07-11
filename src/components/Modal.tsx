@@ -1,15 +1,14 @@
-import type { Dispatch, SetStateAction } from "react";
 import Button from "./Button";
 import styles from "./Modal.module.css";
 
 const Modal = ({
   showModal,
   finalLink,
-  setShowModal,
+  resetApp,
 }: {
   showModal: boolean;
   finalLink?: string;
-  setShowModal?: Dispatch<SetStateAction<boolean>>;
+  resetApp: () => void;
 }) => {
   if (!showModal) return;
   return (
@@ -23,10 +22,7 @@ const Modal = ({
             width={24}
             height={24}
             alt=""
-            onClick={() => {
-              if (!setShowModal) return;
-              setShowModal(false);
-            }}
+            onClick={resetApp}
           />
         </div>
         <div className="font_title">Link is ready!</div>
@@ -43,8 +39,7 @@ const Modal = ({
             <Button
               btnText="Copy Link"
               onClickAction={() => {
-                if (!setShowModal) return;
-                setShowModal(false);
+                resetApp();
               }}
             />
           </div>
