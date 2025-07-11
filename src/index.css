@@ -127,7 +127,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 40px;
+  margin-top: 55px;
 }
 
 .btn_mario {
@@ -196,5 +196,9 @@ body {
 
   .font_subtitle {
     font-size: 32px;
+  }
+
+  .submit_container {
+    margin-top: 40px;
   }
 }
