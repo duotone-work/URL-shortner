@@ -10,6 +10,7 @@
   border-radius: 4px;
   cursor: pointer;
   position: relative;
+  box-shadow: inset 2px 2px rgba(255, 255, 255, 0.1);
 }
 
 .default_button:disabled {

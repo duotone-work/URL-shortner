@@ -102,22 +102,6 @@ body {
   bottom: var(--footer-size);
 }
 
-.url_input {
-  padding: 20px;
-  background-color: var(--url-input-bg);
-  font-family: "JetBrains Mono", monospace;
-  color: black;
-  text-align: center;
-  line-height: 20px;
-  border: 4px solid black;
-  box-shadow: inset 0 px 4px rgba(0, 0, 0, 0.1);
-  margin-top: calc(80px - var(--flex-gap-size));
-}
-
-.url_input::placeholder {
-  color: black;
-}
-
 .title_double_cloud,
 .title_single_cloud {
   position: absolute;
@@ -211,12 +195,5 @@ body {
 
   .font_subtitle {
     font-size: 32px;
-  }
-
-  .url_input {
-    line-height: 32px;
-    font-size: 24px;
-    margin-top: calc(54px - var(--flex-gap-size));
-    width: 576px;
   }
 }

@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
+import styles from "./Input.module.css";
 
 const Input = ({
   setLink,
@@ -9,7 +10,7 @@ const Input = ({
 }) => {
   return (
     <input
-      className="url_input"
+      className={styles.url_input}
       placeholder="Paste your link"
       value={link}
       onChange={(e) => {
