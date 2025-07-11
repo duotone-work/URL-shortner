@@ -13,6 +13,7 @@ const Modal = ({
   resetApp: () => void;
 }) => {
   const btnRef = useRef<HTMLButtonElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -34,10 +35,28 @@ const Modal = ({
     };
   }, [btnRef, finalLink]);
 
+  useEffect(() => {
+    if (!modalRef.current) return;
+    let currentPosition = 100;
+    const intervalId = setInterval(() => {
+      currentPosition -= 1;
+      if (!modalRef.current) {
+        clearInterval(intervalId);
+        return;
+      }
+      modalRef.current.style.top = `${currentPosition}%`;
+      if (currentPosition <= 0) {
+        clearInterval(intervalId);
+      }
+    }, 20);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   if (!showModal) return;
 
   return (
-    <div className={styles.modal_overlay}>
+    <div className={styles.modal_overlay} ref={modalRef}>
       <div className={styles.modal}>
         <div className={styles.psuedo_border}></div>
         <div className={styles.psuedo_border}></div>

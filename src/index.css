@@ -70,7 +70,6 @@ body {
   margin: 0 auto;
   gap: var(--flex-gap-size);
   height: calc(95dvh - var(--footer-border-size));
-  overflow-x: hidden;
 }
 
 .footer {
@@ -103,6 +102,10 @@ body {
   bottom: var(--footer-size);
 }
 
+.cloud_container {
+  position: relative;
+}
+
 .title_double_cloud,
 .title_single_cloud {
   position: absolute;
@@ -114,13 +117,12 @@ body {
 }
 
 .title_double_cloud {
-  left: -100px;
-  top: 50px;
+  left: 35%;
+  top: -70px;
 }
 
 .title_single_cloud {
-  right: -60px;
-  top: -30px;
+  opacity: 0;
 }
 
 .submit_container {
@@ -200,5 +202,16 @@ body {
 
   .submit_container {
     margin-top: 40px;
+  }
+
+  .title_double_cloud {
+    left: -130px;
+    top: 60px;
+  }
+
+  .title_single_cloud {
+    right: -100px;
+    top: -30px;
+    opacity: 1;
   }
 }
