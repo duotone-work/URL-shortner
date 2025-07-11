@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import styles from "./Modal.module.css";
+import Clipboardjs from "clipboard";
 
 const Modal = ({
   showModal,
@@ -10,7 +12,30 @@ const Modal = ({
   finalLink?: string;
   resetApp: () => void;
 }) => {
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!btnRef.current) return;
+    const clipboard = new Clipboardjs(btnRef.current, {
+      text: () => finalLink || "",
+    });
+
+    clipboard.on("success", () => {
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+        resetApp();
+      }, 1000);
+    });
+
+    return () => {
+      clipboard.destroy();
+    };
+  }, [btnRef, finalLink]);
+
   if (!showModal) return;
+
   return (
     <div className={styles.modal_overlay}>
       <div className={styles.modal}>
@@ -37,10 +62,10 @@ const Modal = ({
           />
           <div>
             <Button
-              btnText="Copy Link"
-              onClickAction={() => {
-                resetApp();
-              }}
+              btnText={copied ? "Copied" : "Copy Link"}
+              onClickAction={() => {}}
+              disabled={!!btnRef.current}
+              ref={btnRef}
             />
           </div>
         </div>
