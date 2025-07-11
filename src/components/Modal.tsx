@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type RefObject } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type RefObject,
+  type SetStateAction,
+} from "react";
 import Button from "./Button";
 import styles from "./Modal.module.css";
 import Clipboardjs from "clipboard";
@@ -7,11 +14,13 @@ const Modal = ({
   showModal,
   finalLink,
   resetApp,
+  setLink,
   singleCloudRef,
   doubleCloudRef,
 }: {
   showModal: boolean;
   finalLink?: string;
+  setLink: Dispatch<SetStateAction<string>>;
   resetApp: () => void;
   singleCloudRef: RefObject<HTMLImageElement | null>;
   doubleCloudRef: RefObject<HTMLImageElement | null>;
@@ -48,6 +57,7 @@ const Modal = ({
   }, [btnRef.current, finalLink]);
 
   useEffect(() => {
+    setLink("");
     if (modalRef.current) {
       if (showModal) {
         if (singleCloudRef.current)
@@ -76,6 +86,7 @@ const Modal = ({
             height={40}
             alt=""
             onClick={() => {
+              setLink("");
               setTimeout(() => {
                 if (!modalRef.current) return;
                 modalRef.current.classList.remove(

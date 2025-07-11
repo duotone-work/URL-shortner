@@ -14,7 +14,6 @@ const Main = () => {
   const doubleCloudRef = useRef<HTMLImageElement>(null);
 
   const resetApp = () => {
-    setLink("");
     setLoading(false);
     setShowModal(false);
     setFinalLink("");
@@ -54,6 +53,7 @@ const Main = () => {
       <Modal
         showModal={showModal}
         resetApp={resetApp}
+        setLink={setLink}
         finalLink={finalLink}
         singleCloudRef={singleCloudRef}
         doubleCloudRef={doubleCloudRef}
