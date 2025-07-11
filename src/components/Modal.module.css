@@ -1,11 +1,13 @@
 .modal_overlay {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  transform: translateY(150%);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -17,8 +19,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 100%;
   padding: 32px;
+}
+
+.modal_move_up_animated {
+  transform: translateY(-1%);
 }
 
 .psuedo_border {

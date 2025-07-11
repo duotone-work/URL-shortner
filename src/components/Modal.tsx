@@ -33,25 +33,20 @@ const Modal = ({
     return () => {
       clipboard.destroy();
     };
-  }, [btnRef, finalLink]);
+  }, [btnRef.current, finalLink]);
 
   useEffect(() => {
-    if (!modalRef.current) return;
-    let currentPosition = 100;
-    const intervalId = setInterval(() => {
-      currentPosition -= 1;
-      if (!modalRef.current) {
-        clearInterval(intervalId);
-        return;
+    if (modalRef.current) {
+      if (showModal) {
+        setTimeout(() => {
+          if (!modalRef.current) return;
+          modalRef.current.classList.add(styles.modal_move_up_animated);
+        }, 50);
+      } else {
+        modalRef.current.classList.remove(styles.modal_move_up_animated);
       }
-      modalRef.current.style.top = `${currentPosition}%`;
-      if (currentPosition <= 0) {
-        clearInterval(intervalId);
-      }
-    }, 20);
-
-    return () => clearInterval(intervalId);
-  }, []);
+    }
+  }, [showModal]);
 
   if (!showModal) return;
 

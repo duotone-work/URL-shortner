@@ -80,7 +80,7 @@ const Main = () => {
             ref={marioJumpRef}
           />
           <Button
-            btnText="Shorten"
+            btnText={loading ? "Loading..." : "Shorten"}
             disabled={link.length <= 0 || loading}
             onClickAction={onButtonClick}
           />
