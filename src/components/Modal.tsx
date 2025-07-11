@@ -64,7 +64,7 @@ const Modal = ({
             <Button
               btnText={copied ? "Copied" : "Copy Link"}
               onClickAction={() => {}}
-              disabled={!!btnRef.current}
+              disabled={!!btnRef.current || copied}
               ref={btnRef}
             />
           </div>
