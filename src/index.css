@@ -9,6 +9,7 @@
 :root {
   --background-primary: #6a00f0;
   --background-secondary: #6605e1;
+  --background-footer: #4b03a6;
   --text-primary: #fff;
   --text-disabled: rgba(255, 255, 255, 0.7);
 
@@ -60,6 +61,7 @@ body {
   color: var(--text-primary);
   text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000,
     -2px -2px 0 #000;
+  text-align: center;
 }
 
 .header_container {
@@ -78,7 +80,7 @@ body {
   position: relative;
   border-top: var(--footer-border-size) solid transparent;
   border-image: url("/assets/images/road_block.png") 16 repeat;
-  background-color: var(--background-secondary);
+  background-color: var(--background-footer);
 }
 
 .footer_pipe {
@@ -131,13 +133,15 @@ body {
   flex-direction: column;
   position: relative;
   margin-top: 55px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn_mario {
   width: 50px;
   height: 50px;
   position: absolute;
-  left: 30%;
+  bottom: 12px;
 }
 
 .btn_mario_jump {

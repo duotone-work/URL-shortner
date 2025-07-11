@@ -57,9 +57,9 @@ const Modal = ({
         <div className={styles.psuedo_border}></div>
         <div className={styles.modal_actions}>
           <img
-            src="/assets/images/close.png"
-            width={24}
-            height={24}
+            src="/assets/images/close-button.png"
+            width={40}
+            height={40}
             alt=""
             onClick={resetApp}
           />
@@ -78,7 +78,6 @@ const Modal = ({
             <Button
               btnText={copied ? "Copied" : "Copy Link"}
               onClickAction={() => {}}
-              disabled={!!btnRef.current || copied}
               ref={btnRef}
             />
           </div>
