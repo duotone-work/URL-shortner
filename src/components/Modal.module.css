@@ -76,7 +76,7 @@
   text-align: center;
   padding: 14px 23px;
   color: #000;
-  box-shadow: inset 6px 6px rgba(216, 75, 2, 1);
+  box-shadow: inset 6px 6px #cfcfcf, 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 720px) {
