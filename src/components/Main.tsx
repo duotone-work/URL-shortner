@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import Modal from "./Modal";
+import axios from "axios";
+import { BASE_SHORT_URL } from "../constants/misc";
 
 const Main = () => {
   const [link, setLink] = useState("");
@@ -21,11 +23,15 @@ const Main = () => {
 
   const onButtonClick = () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setShowModal(true);
-      setFinalLink("https://ritik.cc");
-    }, 1000);
+    axios
+      .post(`${BASE_SHORT_URL}/short`, {
+        longUrl: link,
+      })
+      .then((res) => {
+        setFinalLink(`${BASE_SHORT_URL}/${res.data}`);
+        setLoading(false);
+        setShowModal(true);
+      });
   };
 
   useEffect(() => {
