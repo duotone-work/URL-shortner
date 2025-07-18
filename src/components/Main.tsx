@@ -64,7 +64,7 @@ const Main = () => {
         singleCloudRef={singleCloudRef}
         doubleCloudRef={doubleCloudRef}
       />
-      <main className="header_container">
+      <form className="header_container">
         <div className="title_container">
           <img
             className="title_double_cloud"
@@ -101,7 +101,7 @@ const Main = () => {
             onClickAction={onButtonClick}
           />
         </div>
-      </main>
+      </form>
     </>
   );
 };
