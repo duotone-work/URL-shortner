@@ -10,12 +10,14 @@ const Input = ({
 }) => {
   return (
     <input
+      type="url"
       className={styles.url_input}
       placeholder="Paste your link"
       value={link}
       onChange={(e) => {
         setLink(e.target.value);
       }}
+      required
     />
   );
 };

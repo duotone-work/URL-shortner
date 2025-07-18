@@ -22,16 +22,24 @@ const Main = () => {
   };
 
   const onButtonClick = () => {
-    setLoading(true);
-    axios
-      .post(`${BASE_SHORT_URL}/short`, {
-        longUrl: link,
-      })
-      .then((res) => {
-        setFinalLink(`${BASE_SHORT_URL}/${res.data}`);
-        setLoading(false);
-        setShowModal(true);
-      });
+    try {
+      const url = new URL(link);
+      if (url.protocol === "http:" || url.protocol === "https:") {
+        setLoading(true);
+        axios
+          .post(`${BASE_SHORT_URL}/short`, {
+            longUrl: link,
+          })
+          .then((res) => {
+            setFinalLink(`${BASE_SHORT_URL}/${res.data}`);
+            setLoading(false);
+            setShowModal(true);
+          });
+      }
+    } catch (err) {
+      // err
+      console.log("Invalid URL", err);
+    }
   };
 
   useEffect(() => {
