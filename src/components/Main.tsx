@@ -14,6 +14,7 @@ const Main = () => {
   const marioStopRef = useRef<HTMLImageElement>(null);
   const singleCloudRef = useRef<HTMLImageElement>(null);
   const doubleCloudRef = useRef<HTMLImageElement>(null);
+  const marioJumpAudioRef = useRef<HTMLAudioElement>(null);
 
   const resetApp = () => {
     setLoading(false);
@@ -25,6 +26,7 @@ const Main = () => {
     try {
       const url = new URL(link);
       if (url.protocol === "http:" || url.protocol === "https:") {
+        if (marioJumpAudioRef.current) marioJumpAudioRef.current.play();
         setLoading(true);
         axios
           .post(`${BASE_SHORT_URL}/short`, {
@@ -62,6 +64,7 @@ const Main = () => {
     }
   }, [loading]);
 
+
   return (
     <>
       <Modal
@@ -73,6 +76,11 @@ const Main = () => {
         doubleCloudRef={doubleCloudRef}
       />
       <form className="header_container">
+        <audio
+          id="my_audio"
+          src="/assets/audio/mario_jump.mp3"
+          ref={marioJumpAudioRef}
+        ></audio>
         <div className="title_container">
           <img
             className="title_double_cloud"
