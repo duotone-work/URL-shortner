@@ -10,10 +10,12 @@ const Main = () => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [finalLink, setFinalLink] = useState("");
+  const [hasPlayed, setHasPlayed] = useState(false);
   const marioJumpRef = useRef<HTMLImageElement>(null);
   const marioStopRef = useRef<HTMLImageElement>(null);
   const singleCloudRef = useRef<HTMLImageElement>(null);
   const doubleCloudRef = useRef<HTMLImageElement>(null);
+  const marioThemeAudioRef = useRef<HTMLAudioElement>(null);
   const marioJumpAudioRef = useRef<HTMLAudioElement>(null);
 
   const resetApp = () => {
@@ -25,11 +27,14 @@ const Main = () => {
   const onButtonClick = () => {
     try {
       let processedLink = link;
+
+      // Add protocol if missing
       if (!link.startsWith("http://") && !link.startsWith("https://")) {
         processedLink = "https://" + link;
       }
       const url = new URL(processedLink);
       if (url.protocol === "http:" || url.protocol === "https:") {
+        if (marioThemeAudioRef.current) marioThemeAudioRef.current.pause();
         if (marioJumpAudioRef.current) marioJumpAudioRef.current.play();
         setLoading(true);
         axios
@@ -68,6 +73,30 @@ const Main = () => {
     }
   }, [loading]);
 
+  useEffect(() => {
+    const handleFirstInteraction = async () => {
+      if (marioThemeAudioRef.current && !hasPlayed) {
+        try {
+          await marioThemeAudioRef.current.play();
+          setHasPlayed(true);
+          // Remove listeners after playing
+          document.removeEventListener("click", handleFirstInteraction);
+          document.removeEventListener("keydown", handleFirstInteraction);
+        } catch (error) {
+          console.log("Audio play failed:", error);
+        }
+      }
+    };
+
+    document.addEventListener("click", handleFirstInteraction);
+    document.addEventListener("keydown", handleFirstInteraction);
+
+    return () => {
+      document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("keydown", handleFirstInteraction);
+    };
+  }, [hasPlayed]);
+
   return (
     <>
       <Modal
@@ -79,6 +108,11 @@ const Main = () => {
         doubleCloudRef={doubleCloudRef}
       />
       <form className="header_container">
+        <audio
+          id="my_audio"
+          src="/assets/audio/mario_theme.mp3"
+          ref={marioThemeAudioRef}
+        ></audio>
         <audio
           id="my_audio"
           src="/assets/audio/mario_jump.mp3"
