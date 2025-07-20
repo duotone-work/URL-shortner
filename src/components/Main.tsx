@@ -42,9 +42,11 @@ const Main = () => {
             longUrl: link,
           })
           .then((res) => {
-            setFinalLink(`${BASE_SHORT_URL}/${res.data}`);
-            setLoading(false);
-            setShowModal(true);
+            setTimeout(() => {
+              setFinalLink(`${BASE_SHORT_URL}/${res.data}`);
+              setLoading(false);
+              setShowModal(true);
+            }, 500);
           });
       }
     } catch (err) {
