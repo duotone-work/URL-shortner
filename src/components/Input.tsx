@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from "react";
+import { useEffect, useRef, type Dispatch, type SetStateAction } from "react";
 import styles from "./Input.module.css";
 
 const Input = ({
@@ -8,6 +8,10 @@ const Input = ({
   setLink: Dispatch<SetStateAction<string>>;
   link: string;
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus();
+  }, []);
   return (
     <input
       type="url"
@@ -17,6 +21,7 @@ const Input = ({
       onChange={(e) => {
         setLink(e.target.value);
       }}
+      ref={inputRef}
     />
   );
 };
