@@ -17,7 +17,6 @@ const Input = ({
       onChange={(e) => {
         setLink(e.target.value);
       }}
-      required
     />
   );
 };

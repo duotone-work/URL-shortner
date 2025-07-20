@@ -24,7 +24,11 @@ const Main = () => {
 
   const onButtonClick = () => {
     try {
-      const url = new URL(link);
+      let processedLink = link;
+      if (!link.startsWith("http://") && !link.startsWith("https://")) {
+        processedLink = "https://" + link;
+      }
+      const url = new URL(processedLink);
       if (url.protocol === "http:" || url.protocol === "https:") {
         if (marioJumpAudioRef.current) marioJumpAudioRef.current.play();
         setLoading(true);
@@ -63,7 +67,6 @@ const Main = () => {
       }
     }
   }, [loading]);
-
 
   return (
     <>
