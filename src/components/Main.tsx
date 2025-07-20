@@ -46,7 +46,7 @@ const Main = () => {
               setFinalLink(`${BASE_SHORT_URL}/${res.data}`);
               setLoading(false);
               setShowModal(true);
-            }, 500);
+            }, 1500);
           });
       }
     } catch (err) {
